@@ -18,4 +18,11 @@ public interface ICartService {
      * @return : Cart<Object>
      */
     public ResponseTemplate getCartByIdWithProduct(Integer cartId);
+
+    /**
+     * Method : Getting Cart Bill
+     * @param : cartId
+     * @return : Integer 
+     */
+    public Float getBillAoumt(Integer cartId);
 }

@@ -24,6 +24,8 @@ public class CartServiceImpl implements ICartService{
     @Autowired
     private RestTemplate restTemplate;
 
+    private List<Product> cartItems;
+
     @Override
     public Cart getNewCart(Cart cart) {
         log.info("Cart Service : Getting new cart");
@@ -46,6 +48,7 @@ public class CartServiceImpl implements ICartService{
             cartProducts.add(product);
         }
 
+        cartItems = cartProducts;
         returnTemplate.setCart(currentCart);
         returnTemplate.setProductDetails(cartProducts);
         return returnTemplate;
@@ -60,6 +63,15 @@ public class CartServiceImpl implements ICartService{
 
         log.info("Added new Products to List and saving Cart");
         return cartRepository.save(cart);   
+    }
+
+    @Override
+    public Float getBillAoumt(Integer cartId) {
+        Float bill = (float)0;
+        for(Product item : cartItems){
+            bill += item.getProductPrice();
+        }
+        return bill;
     }
     
 }

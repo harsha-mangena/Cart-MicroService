@@ -54,5 +54,15 @@ public class CartController {
         log.info("Cart Controller : Adding Product into Cart");
         return cartService.addProductIntoCart(cartId, productId); 
     }
+
+    /**
+     * API : /bill/{cartId}
+     * @Param :  cartId <Integer>
+     * @return : Integer Bill Amount
+     */
+    @GetMapping("/bill/{cartId}")
+    public Float getBillAmount(@PathVariable Integer cartId) {
+        return cartService.getBillAoumt(cartId);
+    }
     
 }
