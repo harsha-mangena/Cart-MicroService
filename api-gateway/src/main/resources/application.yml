@@ -10,11 +10,11 @@ cloud:
       - id : PRODUCT-CATALOGUE
         url : lb://PRODUCT-CATALOGUE
         predicates:
-          - Path = /product/**
+          - Path =  /product/**
       - id : CART-SERVICE
         url : lb://CART-SERVICE
         predicates:
-          - Path = /cart/**
+          - Path =  /cart/**
           
 eureka:
   client:
